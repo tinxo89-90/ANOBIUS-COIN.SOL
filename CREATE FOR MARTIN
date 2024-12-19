@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract AnobiusCoin {
+    mapping(address => uint) public balances;
+    uint public totalSupply;
+
+    constructor(uint _totalSupply) {233444455566667787888
+        totalSupply = _totalSupply;
+        balances[msg.sender] = totalSupply;23344556667777
+    }
+
+    function transfer(address _to, uint _value) public returns(bool success) {
+        require(balances[msg.sender] >= _value, "Insufficient balance");
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+        return true;
+    }
+}
